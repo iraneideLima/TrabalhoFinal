@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="shortcut icon" href="/img/logo.ico" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/estilo.css" />
+<script src="/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-light">
+	<div class="container bg-light">
+			<div class="row">
+					<div class="col-sm">
+						<div class="card">
+							<div class="mx-auto">
+								<img th:src="@{'/images/'+${roupa.descricao}+'.png'}" width="50%">
+							</div>
+						</div>
+					</div>
+					<div class="col-sm">
+						<div class="row">
+							<div class="card col-sm">
+								<div class="card-title">
+									<h1 class="text-muted" th:text="${roupa.descricao}"></h1>
+								</div>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="card col-sm">
+							<p><a class="text-light bg-danger">Promoção</a></p>
+								<h3 class="text-primary">R$
+									<samp th:text="${#numbers.formatDecimal( roupa.preco , 0, 'POINT', 2, 'COMMA')}">
+									</samp>
+								</h3>				
+								
+							</div>
+						</div>
+						<div>
+						<div class="row">
+							<a><button type="submit" class="btn btn-success">COMPRAR</button></a>
+						</div>
+						</div>
+					</div>
+			</div>
+	</div>
+</body>
+</html>

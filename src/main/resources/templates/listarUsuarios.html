@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Listar Produtos</title>
+<link rel="shortcut icon" href="/img/logo.ico" />
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<script src="/js/bootstrap.min.js">  </script>
+
+</head>
+<body>
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Codigo</th>
+      			<th scope="col">Nome</th>
+      			<th scope="col">CPF</th>
+      			<th scope="col">Endereço</th>
+      			<th scope="col">Datade Nascimento</th>
+      			<th scope="col">Login</th>
+      					</tr>
+		</thead>
+		<tbody>
+			<tr th:each="usuario : ${listarUsuarios}">
+				<td th:text = "${usuario.id}" ></td>
+				<td th:text = "${usuario.nome}"></td>
+				<td th:text = "${usuario.cpf}" ></td>
+				<td th:text = "${usuario.endereco}"></td>
+				<td th:text="${{usuario.dataNascimento}}"></td>
+				<td th:text = "${usuario.login}"></td>
+     			
+				
+				<td><a th:href="@{/user/excluir/{id}(id = ${usuario.id})}"> <button type="button" class="btn btn-danger">Excluir</button></a></td>
+      				</tr>	
+			
+		</tbody>
+	
+		<tr>
+			<td>
+				<a th:href="@{/user/formulario}">
+					<button type="submit" class="btn btn-success">Adicionar</button>
+				</a>
+			</td>
+		</tr>
+	
+	
+	</table>
+
+</body>
+</html>
